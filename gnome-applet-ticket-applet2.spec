@@ -1,20 +1,20 @@
-%define		    _realname	ticket-applet
-%define         _url        http://quackerhead.com/~duff/ticket_applet-2/
 Summary:        A GNOME2 applet for managing Kerberos tickets
 Summary(pl):    Applet GNOME2 do zarz±dzania biletami Kerberos'a
 Name:           gnome-applet-krbticket
 Version:        0.3
 Release:        0.1
 License:        GPL
-URL:            %{_url}
 Group:          X11/Applications
-Source0:        %{_url}/download/%{_realname}--mainline--%{version}--patch-26.tar.bz2
-# Source0-md5:	328c60dae887f6041c6a97e0bc1d186f
+# some time ago at http://quackerhead.com/~duff/ticket_applet-2/download/ (no longer exists)
+# now pulled from arch repo: http://mirrors.sourcecontrol.net/cduffy@spamcop.net--2003/ticket-applet--mainline
+Source0:        ticket-applet--mainline--%{version}--patch-26.tar.bz2
+# Source0-md5:	d606a5c6401c58d15f4b435f0ebf6f8f
 Patch1:         %{name}-buildfix.patch
+URL:		http://freshmeat.net/projects/ticket_applet-2/
 BuildRequires:  gnome-panel-devel 
 BuildRequires:  libcom_err-devel
 BuildRequires:  heimdal-devel
-BuildRoot:	    %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The Ticket Applet allows a user to view the amount of time
@@ -29,7 +29,7 @@ pobranie nowego biletu (opcjonalnie uruchamiaj±c dowolne
 polecenie)
 
 %prep
-%setup -q -n %{_realname}--mainline--%{version}--patch-26
+%setup -q -n ticket-applet--mainline--%{version}--patch-26
 %patch1 -p1
 
 %build
