@@ -21,6 +21,7 @@ BuildRequires:	libcom_err-devel
 BuildRequires:	libgnomeui-devel >= 2.2
 BuildRequires:	pkgconfig
 BuildRequires:	scrollkeeper
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,6 +58,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%scrollkeeper_update_post
+
+%postun
+%scrollkeeper_update_postun
 
 %files -f ticket-applet-2-manual.lang
 %defattr(644,root,root,755)
