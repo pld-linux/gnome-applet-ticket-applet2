@@ -11,11 +11,16 @@ Source0:	ticket-applet--mainline--%{version}--patch-26.tar.bz2
 # Source0-md5:	d606a5c6401c58d15f4b435f0ebf6f8f
 Patch0:		%{name}-buildfix.patch
 URL:		http://freshmeat.net/projects/ticket_applet-2/
+BuildRequires:	GConf2-devel >= 2.2
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-panel-devel 
-BuildRequires:	libcom_err-devel
+BuildRequires:	gnome-panel-devel >= 2.2
+BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	heimdal-devel
+BuildRequires:	libcom_err-devel
+BuildRequires:	libgnomeui-devel >= 2.2
+BuildRequires:	pkgconfig
+BuildRequires:	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -48,15 +53,16 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang ticket-applet-2-manual --with-gnome
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f ticket-applet-2-manual.lang
 %defattr(644,root,root,755)
-%doc ChangeLog AUTHORS NEWS README TODO
-%attr(755,root,root) %{_libdir}/ticket_applet-2
+%doc AUTHORS ChangeLog* NEWS README TODO
+%attr(755,root,root) %{_libexecdir}/ticket_applet-2
 %{_libdir}/bonobo/servers/*.server
-%{_datadir}/gnome-2.0/ui/*
-%{_datadir}/gnome/help/*
-%{_datadir}/pixmaps/*
+%{_datadir}/gnome-2.0/ui/*.xml
+%{_pixmapsdir}/*.png
 %{_datadir}/omf/*
