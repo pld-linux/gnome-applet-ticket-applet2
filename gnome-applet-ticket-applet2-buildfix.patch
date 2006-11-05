@@ -1,0 +1,98 @@
+diff -ur ticket-applet--mainline--0.3--patch-26/src/krb-util.c ticket-applet--mainline--0.3--patch-26.mrk/src/krb-util.c
+--- ticket-applet--mainline--0.3--patch-26/src/krb-util.c	2003-10-11 20:04:06.000000000 +0200
++++ ticket-applet--mainline--0.3--patch-26.mrk/src/krb-util.c	2005-04-04 21:32:10.640633958 +0200
+@@ -43,19 +43,19 @@
+ char * progname = "ticket_applet";
+ 
+ 
+-#define clear_error(e) memset((char *) &e, 0, sizeof(krb_error))
++#define clear_error(e) memset((char *) &e, 0, sizeof(_krb_error))
+ 
+-static krb_error
++static _krb_error
+ make_error(krb5_error_code code)
+ {
+-  krb_error error;
++  _krb_error error;
+ 
+   strncpy(error.message, error_message(code), 255);
+   error.code = code;
+   return error;
+ }
+ 
+-krb_error
++_krb_error
+ krb_get_tickets(char *princ, char *pass)
+ {
+   krb5_context context;
+@@ -68,7 +68,7 @@
+   CREDENTIALS v4_creds;
+ #endif
+ 
+-  krb_error error;
++  _krb_error error;
+   clear_error(error);
+ 
+   if ((code = krb5_init_context(&context))) {
+@@ -149,7 +149,7 @@
+ }
+ 
+ 
+-krb_error
++_krb_error
+ krb_time_left(int * t)
+ {
+   krb5_context context;
+@@ -158,8 +158,8 @@
+   krb5_principal me = NULL;
+   krb5_cc_cursor cur;
+   krb5_creds creds;
+-  krb5_int32 now;
+-  krb_error error;
++  int now;
++  _krb_error error;
+ 
+   *t = 0;
+   clear_error(error);
+@@ -220,7 +220,7 @@
+   int t;
+   int min,hr;
+   char *msg;
+-  krb_error error;
++  _krb_error error;
+   
+   error = krb_time_left(&t);
+ 
+diff -ur ticket-applet--mainline--0.3--patch-26/src/krb-util.h ticket-applet--mainline--0.3--patch-26.mrk/src/krb-util.h
+--- ticket-applet--mainline--0.3--patch-26/src/krb-util.h	2003-10-11 20:04:06.000000000 +0200
++++ ticket-applet--mainline--0.3--patch-26.mrk/src/krb-util.h	2005-04-04 21:32:10.640633958 +0200
+@@ -24,13 +24,13 @@
+ #include <krb5.h>
+ #include <string.h>
+ 
+-typedef struct _krb_error {
++typedef struct __krb_error {
+   krb5_error_code code;
+   char message[255];
+-} krb_error;
++} _krb_error;
+ 
+-krb_error krb_get_tickets(char *princ, char *pass);
+-krb_error krb_time_left(int *t);
++_krb_error krb_get_tickets(char *princ, char *pass);
++_krb_error krb_time_left(int *t);
+ char *krb_time_left_as_string(void);
+ 
+ #ifdef DO_KRBAFS
+diff -ur ticket-applet--mainline--0.3--patch-26/src/renew.c ticket-applet--mainline--0.3--patch-26.mrk/src/renew.c
+--- ticket-applet--mainline--0.3--patch-26/src/renew.c	2003-10-11 20:04:06.000000000 +0200
++++ ticket-applet--mainline--0.3--patch-26.mrk/src/renew.c	2005-04-04 21:32:10.641633749 +0200
+@@ -45,7 +45,7 @@
+   gchar *password;
+   gchar *princ;
+   gchar *user;
+-  krb_error error;
++  _krb_error error;
+   char error_msg[256];
+ 
+   password = gtk_editable_get_chars(GTK_EDITABLE(ad->pass_entry),
