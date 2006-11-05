@@ -71,5 +71,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/ticket_applet-2
 %{_libdir}/bonobo/servers/*.server
 %{_datadir}/gnome-2.0/ui/*.xml
+%{_omf_dest_dir}/omf/*
 %{_pixmapsdir}/*.png
-%{_datadir}/omf/*
