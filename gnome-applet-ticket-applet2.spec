@@ -1,5 +1,5 @@
 Summary:	A GNOME2 applet for managing Kerberos tickets
-Summary(pl):	Aplet GNOME2 do zarz±dzania biletami Kerberosa
+Summary(pl.UTF-8):   Aplet GNOME2 do zarzÄ…dzania biletami Kerberosa
 Name:		gnome-applet-ticket-applet2
 Version:	0.3
 Release:	0.1
@@ -29,11 +29,11 @@ The Ticket Applet allows a user to view the amount of time remaining
 on their Kerberos ticket or to grab a new ticket (optionally running
 other programs -- ie. grabbing an AFS token).
 
-%description -l pl
-Ticket Applet umo¿liwia ³atwe sprawdzenie ilo¶ci czasu przez jak±
-wa¿ny jest jeszcze bilet Kerberosa, pozwala tak¿e na ³atwe pobranie
-nowego biletu (opcjonalnie uruchamiaj±c inne polecenia, tzn.
-pobieraj±c token AFS).
+%description -l pl.UTF-8
+Ticket Applet umoÅ¼liwia Å‚atwe sprawdzenie iloÅ›ci czasu przez jakÄ…
+waÅ¼ny jest jeszcze bilet Kerberosa, pozwala takÅ¼e na Å‚atwe pobranie
+nowego biletu (opcjonalnie uruchamiajÄ…c inne polecenia, tzn.
+pobierajÄ…c token AFS).
 
 %prep
 %setup -q -n ticket-applet--mainline--%{version}--patch-26
