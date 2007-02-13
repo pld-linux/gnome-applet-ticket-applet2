@@ -1,5 +1,5 @@
 Summary:	A GNOME2 applet for managing Kerberos tickets
-Summary(pl.UTF-8):   Aplet GNOME2 do zarządzania biletami Kerberosa
+Summary(pl.UTF-8):	Aplet GNOME2 do zarządzania biletami Kerberosa
 Name:		gnome-applet-ticket-applet2
 Version:	0.3
 Release:	0.1
