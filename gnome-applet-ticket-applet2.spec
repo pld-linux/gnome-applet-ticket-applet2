@@ -2,7 +2,7 @@ Summary:	A GNOME2 applet for managing Kerberos tickets
 Summary(pl.UTF-8):	Aplet GNOME2 do zarządzania biletami Kerberosa
 Name:		gnome-applet-ticket-applet2
 Version:	0.3
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications
 # some time ago at http://quackerhead.com/~duff/ticket_applet-2/download/ (no longer exists)
@@ -16,7 +16,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-panel-devel >= 2.2
 BuildRequires:	gtk+2-devel >= 1:2.0
-BuildRequires:	heimdal-devel
+BuildRequires:	krb5-devel
 BuildRequires:	libcom_err-devel
 BuildRequires:	libgnomeui-devel >= 2.2
 BuildRequires:	pkgconfig
