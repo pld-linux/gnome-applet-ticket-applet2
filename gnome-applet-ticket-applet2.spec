@@ -16,7 +16,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-panel-devel >= 2.2
 BuildRequires:	gtk+2-devel >= 1:2.0
-BuildRequires:	krb5-devel
+BuildRequires:	heimdal-devel
 BuildRequires:	libcom_err-devel
 BuildRequires:	libgnomeui-devel >= 2.2
 BuildRequires:	pkgconfig
