@@ -37,7 +37,7 @@ pobierając token AFS).
 
 %prep
 %setup -q -n ticket-applet--mainline--%{version}--patch-26
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 CFLAGS=-I/usr/include/et
